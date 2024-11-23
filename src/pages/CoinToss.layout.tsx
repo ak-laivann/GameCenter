@@ -1,7 +1,3 @@
-import "antd/es/button/style/css";
-import "antd/es/row/style/css";
-import "antd/es/col/style/css";
-import "antd/es/message/style/css";
 import React, { useState, useEffect } from "react";
 import { Button, Row, Col, message } from "antd";
 import styled, { keyframes, css } from "styled-components";
@@ -58,7 +54,7 @@ export const CoinTossPage: React.FC = () => {
         <DollarTwoTone twoToneColor={"#FFD700"} />
       </Coin>
       <Row justify="center" gutter={[24, 24]} style={{ marginTop: "2%" }}>
-        <Col>
+        <Col md={{ span: 24 }}>
           <Button
             size="large"
             type="primary"

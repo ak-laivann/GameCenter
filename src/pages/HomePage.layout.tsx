@@ -1,7 +1,6 @@
 import React from "react";
 import {
   BulbTwoTone,
-  CalculatorTwoTone,
   SlidersTwoTone,
   DollarTwoTone,
   HourglassTwoTone,
@@ -9,6 +8,7 @@ import {
 import { Card, Layout } from "antd";
 import { useNavigate } from "react-router-dom";
 import { CSS } from "styled-components/dist/types";
+import backgroundImage from "../assets/background.webp";
 
 const iconSize = { fontSize: "30px" };
 const flipKeyframes = `
@@ -30,6 +30,7 @@ const textStyle = { color: "#fff", fontSize: "2rem" };
 const headerFooterStyle: any = {
   backgroundColor: "rgba(0, 0, 0, 0.7)",
   textAlign: "center",
+  height: "100%",
 };
 
 const cardStyle: CSS.Properties = {
@@ -40,11 +41,10 @@ const cardStyle: CSS.Properties = {
   color: "white",
   flexGrow: 1,
   flexBasis: "200px",
-  margin: "10px",
+  marginTop: "10px",
 };
 const contentStyle: CSS.Properties = {
   padding: "20px 0",
-  flex: 1,
 };
 
 const gamesRoutes: {
@@ -112,7 +112,15 @@ export const HomePage = () => {
 
   return (
     <Layout
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <Layout.Header style={headerFooterStyle}>
         <div style={textStyle}>
@@ -123,12 +131,21 @@ export const HomePage = () => {
         {gamesRoutes.map((i) => {
           return (
             <Card
+              key={i.id}
               style={cardStyle}
               title={
-                <div style={{ color: "white", padding: "10px" }}>{i.label}</div>
+                <div
+                  style={{
+                    color: "white",
+                    fontSize: "20px",
+                    textWrap: "pretty",
+                  }}
+                >
+                  {i.label}
+                </div>
               }
               extra={i.icon}
-              children={<div style={{ padding: "10px" }}>{i.content}</div>}
+              children={<div style={{ fontSize: "20px" }}>{i.content}</div>}
               onClick={() => navigate(i.id)}
             />
           );
