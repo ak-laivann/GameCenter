@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import "antd/es/input/style/css";
-import "antd/es/button/style/css";
-import "antd/es/collapse/style/css";
-import "antd/es/typography/style/css";
-import "antd/es/row/style/css";
-import "antd/es/col/style/css";
 import { Input, Button, Collapse, Typography, Row, Col } from "antd";
 import { BulbTwoTone, ScheduleTwoTone, UnlockTwoTone } from "@ant-design/icons";
 
@@ -72,7 +66,7 @@ export const MathGame = () => {
         Guess the number between 1 and 500
       </h4>
       <Row gutter={[24, 24]}>
-        <Col span={10}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 10 }}>
           <Row gutter={[24, 24]}>
             <Col span={24}>
               <Input
@@ -98,7 +92,7 @@ export const MathGame = () => {
           </Row>
         </Col>
         <Col span={2} />
-        <Col span={8}>
+        <Col lg={{ span: 8 }} md={{ span: 24 }}>
           <Collapse>
             <Collapse.Panel
               header={"Hints"}

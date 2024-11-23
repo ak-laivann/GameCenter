@@ -1,8 +1,3 @@
-import "antd/es/avatar/style/css";
-import "antd/es/button/style/css";
-import "antd/es/col/style/css";
-import "antd/es/row/style/css";
-import "antd/es/typography/style/css";
 import React, { useState, useEffect } from "react";
 import { Avatar, Button, Col, Row, Typography } from "antd";
 import "./Timer.css";
@@ -106,7 +101,7 @@ export const ReactionTimeTestingPage: React.FC = () => {
       </div>
       <Timer time={time} />
       <Row gutter={[24, 24]} style={{ marginLeft: "15%" }}>
-        <Col span={8}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 8 }}>
           <Button
             type="primary"
             disabled={isActive}
@@ -115,7 +110,7 @@ export const ReactionTimeTestingPage: React.FC = () => {
             children="Start"
           />
         </Col>
-        <Col span={8}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 8 }}>
           <Button
             type="primary"
             disabled={!isActive || isStopped}
@@ -124,7 +119,7 @@ export const ReactionTimeTestingPage: React.FC = () => {
             children="Stop"
           />
         </Col>
-        <Col span={8}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 8 }}>
           <Button
             type="primary"
             size="large"

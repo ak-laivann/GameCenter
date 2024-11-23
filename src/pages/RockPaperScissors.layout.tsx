@@ -1,9 +1,3 @@
-import "antd/es/message/style/css";
-import "antd/es/button/style/css";
-import "antd/es/tag/style/css";
-import "antd/es/typography/style/css";
-import "antd/es/row/style/css";
-import "antd/es/col/style/css";
 import { Button, Col, message, Row, Tag, Typography } from "antd";
 import { useEffect, useState } from "react";
 import {
@@ -111,15 +105,18 @@ export const RockPaperScissorPage = () => {
     };
   }, [seconds, started]);
 
-  console.log(computerChoice);
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Typography.Title type="success" level={2}>
+        <Typography.Title
+          style={{ paddingTop: "20px" }}
+          type="success"
+          level={2}
+        >
           Rock Paper Scissor
         </Typography.Title>
       </div>
-      <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+      <div style={{ paddingLeft: "10%", paddingRight: "10%" }}>
         <Typography.Text keyboard style={{ color: "white" }}>
           Click the Start button to start the timer and choose a choice within
           the timer goes zero.
@@ -127,7 +124,11 @@ export const RockPaperScissorPage = () => {
       </div>
       <br />
       <Row gutter={[24, 24]}>
-        <Col span={8} push={11}>
+        <Col
+          xs={{ span: 24, push: 8 }}
+          lg={{ span: 8, push: 11 }}
+          md={{ span: 24, push: 8 }}
+        >
           <Tag
             color="#0d3f4b"
             style={{
@@ -143,7 +144,7 @@ export const RockPaperScissorPage = () => {
       <Row gutter={[24, 64]}>
         {choices.map((i) => {
           return (
-            <Col span={8} push={2}>
+            <Col xs={{ span: 12 }} lg={{ span: 8, push: 2 }}>
               <Button
                 type={"dashed"}
                 size="large"
@@ -154,14 +155,19 @@ export const RockPaperScissorPage = () => {
             </Col>
           );
         })}
-        <Col span={12} push={2}>
+        <Col xs={{ span: 12 }} lg={{ span: 24 }}></Col>
+        <Col
+          style={{ paddingBottom: "30px" }}
+          xs={{ span: 12, push: 2 }}
+          lg={{ span: 12, push: 2 }}
+        >
           <Button
             disabled={started}
             children="Start"
             onClick={() => setStarted(true)}
           />
         </Col>
-        <Col span={12} push={6}>
+        <Col xs={{ span: 12, push: 2 }} lg={{ span: 12, push: 6 }}>
           <Button
             children="Reset"
             onClick={() => {
